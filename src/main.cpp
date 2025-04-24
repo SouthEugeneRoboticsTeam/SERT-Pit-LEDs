@@ -46,3 +46,20 @@ void theaterChase(uint32_t color, unsigned long wait, unsigned int groupSize, un
         }
     }
 }
+
+void theaterChaseTwoColors(uint32_t colorOne, uint32_t colorTwo, unsigned long wait, unsigned int groupSize, unsigned int numChases) {
+    for (unsigned int chase = 0; chase < numChases; chase++) {
+        for (unsigned int pos = 0; pos < groupSize; pos++) {
+            strip.clear();  // turn off all LEDs
+            for (unsigned int i = pos; i < strip.numPixels(); i += 1) {
+                if ((i % groupSize) == 0){
+                    strip.setPixelColor(i, colorOne);
+                } else {
+                    strip.setPixelColor(i, colorTwo);
+                } // turn on the current group
+            }
+            strip.show();
+            delay(wait);
+        }
+    }
+}
