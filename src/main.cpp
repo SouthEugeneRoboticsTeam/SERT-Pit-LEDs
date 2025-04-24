@@ -25,3 +25,11 @@ void setup() {
 void loop() {
 // write your code here
 }
+
+void Color_Wipe(uint32_t color, int wait) {
+    for(int i=0; i<strip.numPixels(); i++) {
+        strip.setPixelColor(i, color);
+        strip.show();
+        delay(wait);
+    }
+}
