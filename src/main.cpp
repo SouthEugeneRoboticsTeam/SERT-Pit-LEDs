@@ -4,6 +4,9 @@
 //Technical Aspects
 #define LED_COUNT 16
 #define LED_PIN 4
+#define Mode_PIN  //Figure this out
+
+float Mode = 0;
 
 //Customization
 #define LED_Brightness 255
