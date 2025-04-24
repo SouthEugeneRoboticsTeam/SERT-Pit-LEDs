@@ -33,3 +33,16 @@ void Color_Wipe(uint32_t color, int wait) {
         delay(wait);
     }
 }
+
+void theaterChase(uint32_t color, unsigned long wait, unsigned int groupSize, unsigned int numChases) {
+    for (unsigned int chase = 0; chase < numChases; chase++) {
+        for (unsigned int pos = 0; pos < groupSize; pos++) {
+            strip.clear();  // turn off all LEDs
+            for (unsigned int i = pos; i < strip.numPixels(); i += groupSize) {
+                strip.setPixelColor(i, color);  // turn on the current group
+            }
+            strip.show();
+            delay(wait);
+        }
+    }
+}
